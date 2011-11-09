@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+
+#include<map>
+
+
+
+
+void find(const int *a, const int b, const int c)
+{
+	map<int, int> ma;
+	int half = 0;
+
+
+	for(int k = 0; k != b; k++)
+	{
+		ma[a[k]] = 1;
+		if(a[k] == c/2)
+			half++;
+
+	}
+
+    if(half >= 2)
+	{
+	}
+	else
+	{
+		ma[c/2] = 2;
+	}
+
+	for(int i = 0; i != b; i++)
+		//ma[a[i]] = 2;
+		if(ma[c-a[i]] == 1)
+		{
+			cout<<a[i]<<" "<<c-a[i]<<endl;
+			ma[c-a[i]] = 2;
+			ma[a[i]] = 2;
+			
+		}
+
+}
+
+void main()
+{
+	int a[15] = {11, 2, 12, 4, 5, 6, 7, 8, 9, 10, 2, 6, 8,12, 7};
+	find(a, 15, 14);
+}
